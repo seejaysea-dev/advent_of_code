@@ -1,6 +1,6 @@
 {
   "name": "advent_of_code",
-  "version": "1.0.0",
+  "version": "1.0.2015",
   "description": "Typescript Advent of Code",
   "main": "index.js",
   "scripts": {

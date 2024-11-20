@@ -1,39 +1,38 @@
-function isDigit(char: string): boolean {
-  return char >= "0" && char <= "9";
+/**
+ * Day 1 Part 1: Get all the floors of a building.
+ * @param input - The input from AOC.
+ * @returns The total number of floors represented in the given input.
+  */
+function part_one(input: string): number {
+  const up_inst = input.split('').filter(c => c === "(").length;
+  const dn_inst = input.split('').filter(c => c === ")").length;
+
+  return up_inst - dn_inst;
 }
 
-function getFirst(line: string): number {
-  for (let i = 0; i < line.length; ++i) {
-    if (isDigit(line[i])) {
-      return parseInt(line[i]);
+/**
+  * Day 1 Part 2: Return the first position of the basement (-1)
+  * @param input - The input from AOC
+  * @returns The position (1-indexed) of the first point -1 is hit
+  */
+function part_two(input: string): number {
+  const inArray = input.split('');
+  var floor = 0;
+  for (var i = 0; i < inArray.length; i++) {
+    floor += (inArray[i] === "(") ? 1 : -1;
+
+    if (floor === -1) {
+      return i + 1;
     }
   }
 
-  return 0;
+  return -1;
 }
 
-function getLast(line: string): number {
-  for (let i = (line.length - 1); i >= 0; --i) {
-    if (isDigit(line[i])) {
-      return parseInt(line[i]);
-    }
-  }
-
-  return 0;
-}
-
-export function day1(input: string): number {
-  console.log("Start day1");
-  let res = 0;
-
-  const lines = input.split("\n");
+export function day1(input: string): void {
+  console.debug("Starting day1");
 
 
-  lines.forEach(line => {
-    const lineVal = (getFirst(line) * 10) + getLast(line); 
-    console.log(lineVal);
-    res += lineVal;
-  });
-
-  return res;
+  console.log(`Part One: ${part_one(input)}`);
+  console.log(`Part Two: ${part_two(input)}`);
 }
