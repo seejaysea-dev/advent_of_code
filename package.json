@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "day1": "npm run build && node ./dist/index.js day1",
-    "test": "npm run build && node ./dist/index.js"
+    "test": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
