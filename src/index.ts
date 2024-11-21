@@ -12,8 +12,9 @@ switch (day) {
     day1(readInputFile(fileLoc));
     break;
   case "day2":
-    console.log(`Part 1: ${day2.part1(fileLoc)}`);
-    console.log(`Part 2: ${day2.part2(fileLoc)}`);
+    const [part1, part2] = day2.processDay(fileLoc);
+    console.log(`Part 1: ${part1}`);
+    console.log(`Part 2: ${part2}`);
     break;
   case undefined:
     console.log("No input given");

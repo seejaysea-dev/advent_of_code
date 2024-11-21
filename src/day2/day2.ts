@@ -25,12 +25,10 @@ function calculatePaper(l: number, w: number, h: number, includeSlack: boolean):
 
 /**
  * Day2 Part 1: Calculate the total square feet of wrapping paper required
- * @param inputFile - path to input inputFile.
+ * @param fileContent - String of entire file content.
  * @returns The total square feet required to wrap presents given the dimensions
  */
-export function part1(inputFile: string): number {
-  const fileContent = fs.readFileSync(inputFile, 'utf-8');
-
+function part1(fileContent: string): number {
   let res = fileContent.split('\n')
     .filter((line) => line !== "") // Remove empty input lines
     .map((line) => {
@@ -63,13 +61,11 @@ export function part1(inputFile: string): number {
 
 /**
  * Day2 Part 1: Calculate the total length of ribbon
- * @param inputFile - path to input inputFile.
+ * @param fileContent - String of entire file content.
  * @returns The total length of ribbon required.
  */
-export function part2(inputFile: string): number {
+function part2(fileContent: string): number {
   let res = 0;
-
-  const fileContent = fs.readFileSync(inputFile, 'utf-8');
 
   res = fileContent.split('\n') // Split content into lines.
     .filter((line) => line !== "") // Remove empty lines.
@@ -91,7 +87,8 @@ export function part2(inputFile: string): number {
   return res;
 }
 
-// TODO: Only read the input once for perf improvement.
-export function processDay(inputFile: string): void {
+export function processDay(inputFile: string): number[] {
+  const fileContent = fs.readFileSync(inputFile, 'utf-8');
 
+  return [part1(fileContent), part2(fileContent)]
 }
