@@ -1,6 +1,6 @@
 import { readInputFile } from "./utils/utils";
 import { day1 } from "./day1/day1";
-import * as figlet from 'figlet';
+import * as figlet from "figlet";
 
 let day = process.argv[2];
 
@@ -13,6 +13,7 @@ switch (day) {
     day1(input);
     break;
   case "day2":
+
     break;
   case undefined:
     console.log("No input given");
