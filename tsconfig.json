@@ -1,9 +1,10 @@
 {
+  "exclude": ["**/jest.config.ts"],
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
     "strict": false,
-    "target": "es6",
+    "target": "es2018",
     "module": "commonjs",
     "sourceMap": true,
     "esModuleInterop": true,

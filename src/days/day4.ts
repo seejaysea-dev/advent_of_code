@@ -30,8 +30,8 @@ function part1(input: string, searchingFor: string, startAt: number = 0, stopAt:
   return -1;
 }
 
-export function processData(inputFile: string): ResultData {
-  const inputData = readInputFile(inputFile).replace("\n", "");
+export function processData(inputData: string): ResultData {
+  inputData = inputData.replace("\n", "");
 
   let res: ResultData = { part1: null, part2: null };
 

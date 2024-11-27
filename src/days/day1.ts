@@ -1,3 +1,5 @@
+import { ResultData } from "../models/resultData";
+
 /**
  * Day 1 Part 1: Get all the floors of a building.
  * @param input - The input from AOC.
@@ -29,10 +31,4 @@ function part_two(input: string): number {
   return -1;
 }
 
-export function day1(input: string): void {
-  console.debug("Starting day1");
-
-
-  console.log(`Part One: ${part_one(input)}`);
-  console.log(`Part Two: ${part_two(input)}`);
-}
+export function processData(input: string): ResultData { return { part1: part_one(input), part2: part_two(input) }; }

@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "day1": "npm run build && node ./dist/index.js day1",
-    "test": "node ./dist/index.js"
+    "buildstart": "npm run build && node ./dist/index.js",
+    "start": "node ./dist/index.js",
+    "all": "node ./dist/index.js --all",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,8 +21,14 @@
   },
   "homepage": "https://github.com/corycarte/advent_of_code#readme",
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
     "@types/node": "^20.11.24",
-    "typescript": "^5.3.3"
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "figlet": "^1.7.0"

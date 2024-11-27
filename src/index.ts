@@ -1,40 +1,40 @@
 import { readInputFile } from "./utils/utils";
-import { day1 } from "./day1/day1";
-import * as day2 from "./day2/day2";
-import * as day3 from "./day3/day3";
-import * as day4 from "./day4/day4";
-import * as day5 from "./days/day5";
 import { ResultData } from "./models/resultData";
+import * as processors from './days/processors';
 
 const day = process.argv[2];
-const fileLoc = `./src/inputs/${day}`;
 
-let results: ResultData = { part1: null, part2: null };
-switch (day) {
-  case "day1":
-    day1(readInputFile(fileLoc));
-    break;
-  case "day2":
-    [results.part1, results.part2] = day2.processDay(fileLoc);
-    break;
-  case "day3":
-    results = day3.process(fileLoc);
-    break;
-  case "day4":
-    results = day4.processData(fileLoc);
-    break;
-  case "day5":
-    day5.test_two();
+let funcs: Map<string, (input: string) => ResultData> = new Map<string, (input: string) => ResultData>([
+  ["day1", processors.day1],
+  ["day2", processors.day2],
+  ["day3", processors.day3],
+  ["day4", processors.day4],
+  ["day5", processors.day5],
+  ["day6", processors.day6],
+])
 
-    results = day5.processData(fileLoc);
-    break;
-  case undefined:
-    console.log("No input given");
-    break;
-  default:
-    console.log(`Unknown input ${day}`);
-    break;
+let processor = (day: string): void => {
+  const fileLoc = `./src/inputs/${day}`;
+
+  if (funcs.has(day)) {
+    let func = funcs.get(day);
+    let results = func(readInputFile(fileLoc));
+
+    console.log(`Part 1: ${results.part1}`);
+    console.log(`Part 2: ${results.part2}`);
+  } else {
+    console.log(`No processor found for ${day}`)
+  }
 }
 
-console.log(`Part 1: ${results.part1}`);
-console.log(`Part 2: ${results.part2}`);
+if (day.toLowerCase() === "--all") {
+  console.log("Running all days...");
+
+  Array.from(funcs.keys()).forEach((day) => {
+    console.log(`Running: ${day}`);
+    processor(day);
+  });
+
+} else {
+   processor(day);
+}

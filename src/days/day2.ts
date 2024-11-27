@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import { ResultData } from '../models/resultData';
 
 /**
  * Calculate the required wrapping paper using formula:
@@ -87,8 +88,4 @@ function part2(fileContent: string): number {
   return res;
 }
 
-export function processDay(inputFile: string): number[] {
-  const fileContent = fs.readFileSync(inputFile, 'utf-8');
-
-  return [part1(fileContent), part2(fileContent)]
-}
+export function processData(input: string): ResultData { return { part1: part1(input), part2: part2(input) }; }

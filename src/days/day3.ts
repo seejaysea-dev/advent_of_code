@@ -23,7 +23,7 @@ const traverse = (directions: string[]): string[] => {
         currCoord.x++
         break;
       default:
-        console.error(`Unkown input: ${d}`);
+        // console.error(`Unkown input: ${d}`);
         break;
     }
 
@@ -42,8 +42,6 @@ const traverse = (directions: string[]): string[] => {
  * @returns total number of houses that get at least one present
  **/
 function part1(input: string): number {
-  console.debug("Start processing part1");
-
   return new Set(traverse(input.split(''))).size;
 }
 
@@ -53,8 +51,6 @@ function part1(input: string): number {
  * @returns total number of houses that get at least one present
  **/
 function part2(input: string): number {
-  console.debug("Start processing part 2");
-
   // Split instructions into two
   const indInst = input.split('');
 
@@ -88,12 +84,10 @@ export function testCases(): void {
 
 /**
  * Process data for day 3
- * @param inputFile - filepath for data input
+ * @param inputData - data to process
 **/
-export function process(inputFile: string): ResultData {
+export function processData(inputData: string): ResultData {
   let res: ResultData = { part1: 0, part2: 0 }
-
-  let inputData = readInputFile(inputFile);
 
   res.part1 = part1(inputData);
   res.part2 = part2(inputData);
