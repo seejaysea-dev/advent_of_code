@@ -1,9 +1,9 @@
-# Advent of Code 
-2023 Advent of Code. Due to life circumstances I didn't do it during Christmas, but better late than never
+# Advent of Code <YEAR>
+Base starter for each year of AOC.
+language specific ones will be completed in a year.
 
-## Language
-I will be completing this AOC in Typescript
+## Years
 
-## Notes
-
-I will take notes throughout the AOC problems as well and note anything I find useful here
+| Year | Language                                      | Branch Name |
+| ---- | --------------------------------------------- | ----------- |
+| 2015 | [typescript](https://www.typescriptlang.org/) | 2015        |
